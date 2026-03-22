@@ -6,7 +6,7 @@ ENV PIP_INDEX_URL=https://pypi.tuna.tsinghua.edu.cn/simple
 
 RUN pip install --upgrade pip
 
-RUN apt-get update && apt-get install -y git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git bash && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /docs
 

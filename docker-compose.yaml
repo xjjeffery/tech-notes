@@ -1,8 +1,10 @@
 services:
   mkdocs_blog:
     build: .
-    container_name: tect-notes
+    container_name: tech-notes
     ports:
       - "8000:8000"
     volumes:
       - .:/docs
+    tty: true
+    stdin_open: true
