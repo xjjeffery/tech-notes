@@ -131,7 +131,6 @@ markdown_extensions:
                 case: lower
 
 plugins:
-  - blog
   - offline
   - glightbox:
       touchNavigation: true
