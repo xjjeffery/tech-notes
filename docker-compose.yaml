@@ -1,0 +1,8 @@
+services:
+  mkdocs_blog:
+    build: .
+    container_name: tect-notes
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/docs
