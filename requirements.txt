@@ -1,0 +1,8 @@
+mkdocs<2.0.0
+mkdocs-material
+mkdocs-glightbox
+mkdocs-git-revision-date-localized-plugin==1.4.0
+mkdocs-changelog-plugin
+mkdocs-statistics-plugin
+mkdocs-open-in-new-tab
+jieba
