@@ -3,7 +3,7 @@ site_name: "tech-notes"
 site_author: jeffery
 site_dir: site
 site_url: ""
-site_description: "技术笔记，记录个人在软件开发领域的学习与实践，涵盖 Qt、操作系统、网络、ROS 等主题"
+site_description: ""
 use_directory_urls: false
 
 # Repository
@@ -180,3 +180,6 @@ extra_javascript:
 
 nav:
   - Home: index.md
+  - Linux:
+    - Linux 系统编程:
+      - 文件 I/O: linux/linux-system-programming/file_io.md
