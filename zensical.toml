@@ -1,0 +1,207 @@
+################### 基础配置 ###################
+
+[project]
+site_name = "Tech-Notes"
+site_url = "http://localhost:8000"
+site_description = "A personal knowledge base documenting my journey in computer science, software engineering, and technical exploration."
+site_author = "jeffery"
+
+copyright = "Copyright &copy; 2026 jeffery</br>The website content is licensed under <a href='https://creativecommons.org/licenses/by-nc-sa/4.0/' target='_blank'>CC BY-NC-SA 4.0</a>"
+
+use_directory_urls = true
+repo_url = "https://github.com/xjjeffery/tech-notes"
+repo_name = "tech-notes"
+
+# 从构建和预览中移除的内容
+# exclude_docs = """ """
+# 在构建中移除的内容
+# draft_docs = """ """
+# 遇到警告就终止构建
+strict = true
+
+extra_javascript = [
+  "assets/javascripts/article-stats.js",
+  "assets/javascripts/mathjax.js",
+  "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
+  # "assets/javascripts/katex.js",
+  # "https://unpkg.com/katex@0/dist/katex.min.js",
+  # "https://unpkg.com/katex@0/dist/contrib/auto-render.min.js",
+]
+
+extra_css = [
+  "assets/stylesheets/article-stats.css",
+  "assets/stylesheets/extra.css",
+  # "https://unpkg.com/katex@0/dist/katex.min.css",
+]
+
+nav = [
+  { "主页" = "index.md" }
+]
+
+[project.extra]
+generator = false
+
+################### 主题配置 ###################
+
+[project.theme]
+variant = "modern"
+custom_dir = "theme"
+# logo = "images/logo.png"
+favicon = "https://zensical.org/assets/zensical.svg"
+language = "zh"
+features = [
+  "announce.dismiss",
+  # "content.action.edit",
+  # "content.action.view",
+  "content.code.annotate",
+  "content.code.copy",
+  "content.code.select",
+  "content.footnote.tooltips",
+  "content.tabs.link",
+  "content.tooltips",
+  # "header.autohide",
+  # "navigation.expand",
+  "navigation.footer",
+  "navigation.indexes",
+  "navigation.instant",
+  "navigation.instant.prefetch",
+  "navigation.instant.progress",
+  # "navigation.path",
+  # "navigation.prune",
+  "navigation.sections",
+  "navigation.tabs",
+  # "navigation.tabs.sticky",
+  "navigation.top",
+  "navigation.tracking",
+  "search.highlight",
+  "toc.follow",
+  # "toc.integrate",
+]
+
+[project.theme.icon]
+previous = "fontawesome/solid/angle-left"
+next = "fontawesome/solid/angle-right"
+top = "fontawesome/solid/angle-up"
+repo = "fontawesome/brands/github"
+
+[project.theme.font]
+text = "Inter"
+code = "Jetbrains Mono"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "切换至浅色模式"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+primary = "indigo"
+accent = "indigo"
+toggle.icon = "lucide/sun"
+toggle.name = "切换至深色模式"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+primary = "indigo"
+accent = "indigo"
+toggle.icon = "lucide/moon"
+toggle.name = "切换至自动模式"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/xjjeffery"
+
+################### 插件配置 ###################
+
+# 博客插件
+# [project.plugins.blog]
+# post_date_format = "full"                     # 时间格式：完整日期
+# draft = true                                  # 启用草稿功能
+# draft_if_future_date = true                   # 自动将具有未来日期的帖子标记为草稿
+# post_readtime = true                          # 显示阅读时间
+# post_readtime_words_per_minute = 265          # 每分钟阅读字数（中文适配）
+# post_url_format = "{date}/{slug}"             # 文章URL格式
+# pagination_per_page = 1                       # 每页显示文章数
+# pagination_url_format = "page/{page}"         # 分页URL格式
+
+# 搜索插件
+[project.plugins.search]
+separator = '[\s\u200b\-]'
+
+# 标签插件
+[project.plugins.tags]
+
+# 图片灯箱
+[project.plugins.glightbox]
+
+# 音频插件
+[project.plugins.mkdocs-audio]
+mark = "audio"
+
+# 视频插件
+[project.plugins.mkdocs-video]
+mark = "video"
+is_video = true
+
+################### Markdown 扩展配置 ###################
+
+[project.markdown_extensions]
+
+# Admonitions
+admonition = {}
+pymdownx.details = {}
+# pymdownx.superfences = {}
+
+# Buttons
+attr_list = {}
+
+# Code blocks
+pymdownx.highlight.linenums = true
+pymdownx.highlight.linenums_style = "pymdownx-inline"
+pymdownx.highlight.anchor_linenums = true
+pymdownx.highlight.line_spans = "__span"
+pymdownx.highlight.pygments_lang_class = true
+pymdownx.inlinehilite = {}
+pymdownx.snippets = {}
+
+# Content tabs
+pymdownx.tabbed.alternate_style = true
+
+# Data tables
+tables = {}
+
+# Diagrams
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
+
+# Foonnotes
+footnotes = {}
+
+# Formatting
+pymdownx.caret = {}
+pymdownx.keys = {}
+pymdownx.mark = {}
+pymdownx.tilde = {}
+
+# Grids
+md_in_html = {}
+
+# Icons & Emojis
+pymdownx.emoji.emoji_generator = "zensical.extensions.emoji.to_svg"
+pymdownx.emoji.emoji_index = "zensical.extensions.emoji.twemoji"
+
+# Images
+pymdownx.blocks.caption = {}
+
+# Lists
+def_list = {}
+pymdownx.tasklist.custom_checkbox = true
+
+# Math
+pymdownx.arithmatex.generic = true
+
+# Tooltips
+abbr = {}

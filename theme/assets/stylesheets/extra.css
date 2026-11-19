@@ -1,0 +1,5 @@
+/* 代码区最高为 600px 和视口高度 70% 中的较小值，超出后滚动。 */
+.md-typeset .highlight pre > code {
+    max-height: min(600px, 70vh);
+    overflow: auto;
+}
