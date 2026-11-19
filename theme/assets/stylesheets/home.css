@@ -1,0 +1,272 @@
+  .github-heatmap-glass-container {
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .github-heatmap-glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 16px;
+    padding: 14px 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Zensical 深色主题 (slate) 下的专用样式 */
+  [data-md-color-scheme="slate"] .github-heatmap-glass-card {
+    background: rgba(17, 24, 39, 0.96); /* #111827 */
+    border-color: rgba(148, 163, 184, 0.55);
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65);
+  }
+
+  .github-heatmap-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    gap: 10px;
+  }
+
+  .github-heatmap-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--md-typeset-color);
+    letter-spacing: 0.5px;
+  }
+
+  .github-heatmap-stats {
+    font-size: 0.8rem;
+    color: var(--md-typeset-color);
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+
+  .github-heatmap-stats strong {
+    color: #239a3b;
+    font-weight: 700;
+    opacity: 1;
+  }
+
+  .github-heatmap-content {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 0 -12px;
+    padding: 0 12px;
+  }
+
+  .github-heatmap-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    min-height: 110px;
+    cursor: default;
+  }
+
+  .github-heatmap-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+
+  .github-heatmap-legend {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    color: var(--md-typeset-color);
+    opacity: 0.6;
+  }
+
+  .legend-label {
+    font-weight: 500;
+  }
+
+  .legend-cell {
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    background-color: #239a3b;
+    opacity: var(--opacity, 0.5);
+    flex-shrink: 0;
+  }
+
+  /* Popover 提示框样式（带箭头） */
+  .github-heatmap-tooltip {
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    display: none;
+  }
+
+  .github-heatmap-tooltip.visible {
+    display: block;
+    animation: tooltipFadeIn 150ms ease-out;
+  }
+
+  .github-heatmap-tooltip__content {
+    background: rgba(30, 30, 30, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #fff;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    position: relative;
+  }
+
+  /* 深色模式适配 */
+  [data-md-color-scheme="slate"] .github-heatmap-tooltip__content {
+    background: rgba(17, 24, 39, 0.95);
+  }
+
+  .github-heatmap-tooltip__arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+
+  /* 箭头向上（Tooltip 在格子下方时） */
+  .github-heatmap-tooltip.arrow-top .github-heatmap-tooltip__arrow {
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 6px 6px;
+    border-color: transparent transparent rgba(30, 30, 30, 0.95) transparent;
+    filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.1));
+    margin-bottom: -1px; /* 让箭头和 content 无缝连接 */
+  }
+
+  [data-md-color-scheme="slate"] .github-heatmap-tooltip.arrow-top .github-heatmap-tooltip__arrow {
+    border-color: transparent transparent rgba(17, 24, 39, 0.95) transparent;
+  }
+
+  /* 箭头向下（Tooltip 在格子上方时） */
+  .github-heatmap-tooltip.arrow-bottom .github-heatmap-tooltip__arrow {
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px 6px 0 6px;
+    border-color: rgba(30, 30, 30, 0.95) transparent transparent transparent;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    margin-top: -1px; /* 让箭头和 content 无缝连接 */
+  }
+
+  [data-md-color-scheme="slate"] .github-heatmap-tooltip.arrow-bottom .github-heatmap-tooltip__arrow {
+    border-color: rgba(17, 24, 39, 0.95) transparent transparent transparent;
+  }
+
+  @keyframes tooltipFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+
+        .heatmap-label {
+          fill: rgba(0, 0, 0, 0.4);
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+          font-size: 10px;
+        }
+        [data-md-color-scheme="slate"] .heatmap-label {
+          fill: rgba(255, 255, 255, 0.7);
+        }
+        .heatmap-cell {
+          transition: opacity 150ms, filter 150ms;
+          cursor: default;
+          filter: drop-shadow(0 0 0 rgba(35, 154, 59, 0));
+        }
+        .heatmap-cell:hover {
+          opacity: 1 !important;
+          filter: drop-shadow(0 2px 6px rgba(35, 154, 59, 0.4));
+        }
+      
+
+/* 首页网格保留现有卡片阴影，仅调整布局和点击范围。 */
+.md-typeset .home-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-block: 1.25rem 2rem;
+}
+
+.md-typeset .home-cards > ul > li {
+  position: relative;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.md-typeset .home-cards > ul > li a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.md-typeset .home-cards > ul > li:focus-within {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+}
+
+.github-heatmap-header {
+  flex-wrap: wrap;
+}
+
+.github-heatmap-status {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.8rem;
+}
+
+.github-heatmap-status:empty {
+  margin: 0;
+}
+
+.github-heatmap-svg {
+  min-width: 720px;
+}
+
+.github-heatmap-footer {
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.75rem;
+}
+
+/* display 样式不能覆盖加载期间的 hidden 属性。 */
+.github-heatmap-glass-container [hidden] {
+  display: none !important;
+}
+
+@media (max-width: 60em) {
+  .md-typeset .home-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 40em) {
+  .md-typeset .home-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .github-heatmap-tooltip.visible {
+    animation: none;
+  }
+  .heatmap-cell {
+    transition: none;
+  }
+}

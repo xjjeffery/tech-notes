@@ -21,6 +21,7 @@ strict = true
 
 extra_javascript = [
   "assets/javascripts/article-stats.js",
+  "assets/javascripts/home.js",
   "assets/javascripts/mathjax.js",
   "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
   # "assets/javascripts/katex.js",
@@ -31,11 +32,20 @@ extra_javascript = [
 extra_css = [
   "assets/stylesheets/article-stats.css",
   "assets/stylesheets/extra.css",
+  "assets/stylesheets/home.css",
   # "https://unpkg.com/katex@0/dist/katex.min.css",
 ]
 
 nav = [
-  { "主页" = "index.md" }
+  { "主页" = "index.md" },
+  { "文章专栏" = [
+    { "站点搭建" = "articles/getting-started.md" },
+    { "主题定制" = "articles/customization.md" },
+    { "自动部署" = "articles/deployment.md" },
+  ] },
+  { "项目专栏" = [
+    { "Tech Notes" = "projects/tech-notes.md" },
+  ] },
 ]
 
 [project.extra]
